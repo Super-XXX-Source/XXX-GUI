@@ -1,0 +1,243 @@
+-- ط¸ث†ط·آ§ط·آ¬ط¸â€،ط·آ© ط·آ§ط¸â€‍ط¸â€¦ط·آ³ط·ع¾ط·آ®ط·آ¯ط¸â€¦ ط·آ§ط¸â€‍ط¸â€¦ط·آ­ط·آ³ط¸â€ ط·آ© ط¸ث†ط·آ§ط¸â€‍ط·آ§ط·آ­ط·ع¾ط·آ±ط·آ§ط¸ظ¾ط¸ظ¹ط·آ©
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local UICorner = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local Title = Instance.new("TextLabel")
+local Shadow = Instance.new("ImageLabel")
+local ToggleButton = Instance.new("ImageButton")
+
+-- ط·آ®ط·آµط·آ§ط·آ¦ط·آµ ط¸ث†ط·آ§ط·آ¬ط¸â€،ط·آ© ط·آ§ط¸â€‍ط¸â€¦ط·آ³ط·ع¾ط·آ®ط·آ¯ط¸â€¦
+ScreenGui.Parent = game.CoreGui -- ط·ع¾ط·ط›ط¸ظ¹ط¸ظ¹ط·آ± Parent ط¸â€‍ط¸â‚¬ CoreGui ط¸â€‍ط·آ¬ط·آ¹ط¸â€‍ط¸â€،ط·آ§ ط·ع¾ط·آ¨ط¸â€ڑط¸â€° ط·آ¨ط·آ¹ط·آ¯ ط·آ§ط¸â€‍ط¸â€¦ط¸ث†ط·ع¾
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- ط·آ§ط¸â€‍ط·آ¸ط¸â€‍
+Shadow.Name = "Shadow"
+Shadow.Parent = MainFrame
+Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+Shadow.BackgroundTransparency = 1
+Shadow.Position = UDim2.new(0.5, 0, 0.5, 10)
+Shadow.Size = UDim2.new(1, 30, 1, 30)
+Shadow.Image = "rbxassetid://1316045217"
+Shadow.ImageTransparency = 0.5
+Shadow.ZIndex = -1
+
+-- ط·آ§ط¸â€‍ط·آ¥ط·آ·ط·آ§ط·آ± ط·آ§ط¸â€‍ط·آ±ط·آ¦ط¸ظ¹ط·آ³ط¸ظ¹
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.Size = UDim2.new(0, 350, 0, 450) -- ط·آ­ط·آ¬ط¸â€¦ ط·آ§ط¸â€‍ط¸â€ ط·آ§ط¸ظ¾ط·آ°ط·آ© ط·آ§ط¸â€‍ط¸â€¦ط·آ¹ط·آ¯ط¸â€‍
+MainFrame.Position = UDim2.new(0.5, -175, 0.5, -225)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+-- ط·آ²ط¸ث†ط·آ§ط¸ظ¹ط·آ§ ط¸â€¦ط¸â€ ط·آ­ط¸â€ ط¸ظ¹ط·آ© ط¸â€‍ط¸â€‍ط·آ¥ط·آ·ط·آ§ط·آ± ط·آ§ط¸â€‍ط·آ±ط·آ¦ط¸ظ¹ط·آ³ط¸ظ¹
+UICorner.CornerRadius = UDim.new(0, 15)
+UICorner.Parent = MainFrame
+
+-- ط·آ§ط¸â€‍ط·آ¹ط¸â€ ط¸ث†ط·آ§ط¸â€ 
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Title.Size = UDim2.new(1, -10, 0, 50)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "XXX SUPER XXX GUI"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 30.0
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0, 5, 0, 5)
+Title.TextStrokeTransparency = 0.8
+
+-- ط·آ²ط·آ± ط·آ§ط¸â€‍ط·ع¾ط·آ¨ط·آ¯ط¸ظ¹ط¸â€‍
+ToggleButton.Parent = ScreenGui
+ToggleButton.Size = UDim2.new(0, 50, 0, 50)
+ToggleButton.Position = UDim2.new(1, -60, 1, -60)
+ToggleButton.BackgroundTransparency = 1
+ToggleButton.Image = "rbxassetid://YOUR_IMAGE_ASSET_ID" -- ط·آ§ط·آ³ط·ع¾ط·آ¨ط·آ¯ط¸â€‍ YOUR_IMAGE_ASSET_ID ط·آ¨ط¸ئ’ط¸ث†ط·آ¯ ط·آ§ط¸â€‍ط·آµط¸ث†ط·آ±ط·آ©
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = not MainFrame.Visible
+end)
+
+-- ط·آ¥ط·آ·ط·آ§ط·آ± ط·آ§ط¸â€‍ط·ع¾ط¸â€¦ط·آ±ط¸ظ¹ط·آ±
+ScrollingFrame.Parent = MainFrame
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BackgroundTransparency = 0.8
+ScrollingFrame.Size = UDim2.new(1, -10, 1, -60)
+ScrollingFrame.Position = UDim2.new(0, 5, 0, 55)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 1500)
+ScrollingFrame.ScrollBarThickness = 8
+ScrollingFrame.BorderSizePixel = 0
+
+-- ط·ع¾ط·آ®ط·آ·ط¸ظ¹ط·آ· ط·آ§ط¸â€‍ط¸â€ڑط·آ§ط·آ¦ط¸â€¦ط·آ©
+UIListLayout.Parent = ScrollingFrame
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 5)
+
+-- ط¸ث†ط·آ¸ط¸ظ¹ط¸ظ¾ط·آ© ط¸â€‍ط·آ¥ط¸â€ ط·آ´ط·آ§ط·طŒ ط·آ§ط¸â€‍ط·آ£ط·آ²ط·آ±ط·آ§ط·آ± ط·آ¨ط·آ£ط¸â€‍ط¸ث†ط·آ§ط¸â€  ط¸â€ڑط¸ث†ط·آ³ ط¸â€ڑط·آ²ط·آ­ ط¸â€¦ط·آ¹ ط·ع¾ط·آ£ط·آ«ط¸ظ¹ط·آ± ط·آ§ط¸â€‍ط·آ¥ط·آ¶ط·آ§ط·طŒط·آ© ط·آ§ط¸â€‍ط·آµط¸ظ¾ط·آ±ط·آ§ط·طŒ
+local function createRainbowButton(text, callback)
+    local Button = Instance.new("TextButton")
+    Button.Parent = ScrollingFrame
+    Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Button.Size = UDim2.new(1, -20, 0, 50)
+    Button.Font = Enum.Font.SourceSansBold
+    Button.Text = text
+    Button.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Button.TextSize = 20.0
+    Button.BackgroundTransparency = 1
+
+    -- ط·آ²ط¸ث†ط·آ§ط¸ظ¹ط·آ§ ط¸â€¦ط¸â€ ط·آ­ط¸â€ ط¸ظ¹ط·آ© ط¸â€‍ط¸â€‍ط·آ£ط·آ²ط·آ±ط·آ§ط·آ±
+    local ButtonCorner = Instance.new("UICorner")
+    ButtonCorner.CornerRadius = UDim.new(0, 10)
+    ButtonCorner.Parent = Button
+
+    -- ط·ع¾ط·آ£ط·آ«ط¸ظ¹ط·آ± ط·آ§ط¸â€‍ط·آ¥ط·آ¶ط·آ§ط·طŒط·آ© ط·آ§ط¸â€‍ط·آµط¸ظ¾ط·آ±ط·آ§ط·طŒ
+    local Light = Instance.new("UIStroke")
+    Light.Parent = Button
+    Light.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    Light.Color = Color3.fromRGB(255, 215, 0)
+    Light.Thickness = 2
+
+    spawn(function()
+        while true do
+            for i = 0, 255, 5 do
+                Button.BackgroundColor3 = Color3.fromHSV(i/255, 1, 1)
+                wait(0.05)
+            end
+        end
+    end)
+
+    Button.MouseButton1Click:Connect(callback)
+end
+
+-- ط·آ¥ط¸â€ ط·آ´ط·آ§ط·طŒ ط·آ§ط¸â€‍ط·آ£ط·آ²ط·آ±ط·آ§ط·آ± ط·آ¨ط·آ§ط¸â€‍ط¸â€¦ط¸ظ¹ط·آ²ط·آ§ط·ع¾ ط·آ§ط¸â€‍ط¸â€¦ط·آ·ط¸â€‍ط¸ث†ط·آ¨ط·آ©
+createRainbowButton("Bar Rainbow", function()
+    loadstring(game:HttpGet("https://pastefy.app/NtEaj0FN/raw"))()
+end)
+
+createRainbowButton("desnyc resolver", function()
+    loadstring(game:HttpGet("https://pastefy.app/dR3sWWAZ/raw"))()
+end)
+
+createRainbowButton("AntiLock", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/G5sygbvb"))()
+end)
+
+createRainbowButton("no texture", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/0Es82PAJ"))()
+end)
+
+createRainbowButton("Ultra instinct", function()
+    local player = game:GetService("Players").LocalPlayer
+    local distance = 4
+    while true do
+        player.Character:SetPrimaryPartCFrame(player.Character.HumanoidRootPart.CFrame * CFrame.new(distance, 0, 0))
+        wait()
+        player.Character:SetPrimaryPartCFrame(player.Character.HumanoidRootPart.CFrame * CFrame.new(-distance, 0, 0))
+        wait()
+    end
+end)
+
+createRainbowButton("Crazy Anti!", function()
+    loadstring(game:HttpGet("https://Pastebin.com/raw/gcjxDzhY"))()
+end)
+
+createRainbowButton("Camlock mob and pc", function()
+    getgenv().ScriptSettings = {
+        Enabled = true,
+        Prediction = 0.1211,
+        HitscanPriority = "Head",
+        FOV = 200,
+        Scan = true,
+        JumpOffset = 0.09,
+        TargetStrafeSettings = {
+            Enabled = false,
+            GiveTool = false,
+            Speed = 1,
+            Height = 0,
+            Distance = 7
+        },
+        CameraLock = {
+            Enabled = true,
+            Smoothing = 0.5
+        }
+    }
+    loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7dd05d66b1acebfeec4fb31431a601eb.lua"))()
+end)
+
+createRainbowButton("Swords", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/AZVi2tuK"))()
+end)
+
+createRainbowButton("ForceReset", function()
+    game.Players.LocalPlayer.Character.Head:Destroy()
+end)
+
+createRainbowButton("Fly For Mob And Pc", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/dahoodios/main/hoodcustomfly", true))()
+end)
+
+createRainbowButton("SpeedWalk", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox-Scripts/main/Tpwalk%20V4%20%5B%20BETA%20%5D.lua", true))()
+end)
+
+createRainbowButton("Another bar Rainbow", function()
+    loadstring(game:HttpGet("https://pastefy.app/mh3mrQRp/raw"))()
+end)
+
+createRainbowButton("Super Macro Tools", function()
+    loadstring(game:HttpGet("https://pastefy.app/Dz3ZNKE8/raw"))()
+end)
+
+createRainbowButton("Anti fling", function()
+    local localPlayer = game:GetService('Players').LocalPlayer
+    local localCharacter = localPlayer.Character
+    localCharacter:FindFirstChildOfClass('Humanoid').Health = 0
+    local newCharacter = localPlayer.CharacterAdded:Wait()
+    local spoofFolder = Instance.new('Folder')
+    spoofFolder.Name = 'FULLY_LOADED_CHAR'
+    spoofFolder.Parent = newCharacter
+    newCharacter:WaitForChild('RagdollConstraints'):Destroy()
+    local spoofValue = Instance.new('BoolValue', newCharacter)
+    spoofValue.Name = 'RagdollConstraints'
+end)
+
+createRainbowButton("Anti Mod", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Ez7ug3AT"))()
+end)
+
+createRainbowButton("ULTRA INSTINCT FOR GUNS", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
+end)
+
+
+createRainbowButton("Chat Bypass", function()
+
+loadstring(game:HttpGet("https://pastefy.app/Xv4AKrsR/raw"))()
+end)
+
+
+createRainbowButton("Commands", function()
+loadstring(game:HttpGet("https://pastefy.app/sQxm8hsx/raw"))()
+end)
+
+
+createRainbowButton("Camlock (semi doesnt miss)", function()
+loadstring(game:HttpGet("https://pastefy.app/xQmsYGea/raw"))()
+end)
+
+
+createRainbowButton("part mover", function()
+loadstring(game:HttpGet(('https://pastefy.app/Vcuyg09O/raw'),true))()
+end)
+
+
+createRainbowButton("ESP", function()
+loadstring(game:HttpGet("https://pastefy.app/Zz375LIZ/raw"))()
+end)
+
+
+
+createRainbowButton("BanHammer", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/YqE5aX5c"))()
+end)
